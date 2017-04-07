@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>form</title>
+        <link rel="stylesheet" type="text/css" href="validform.css">
+        <style type="text/css">
+            #form_box{
+                width: 1100px;
+                margin: 50px auto;
+                padding: 50px;
+            }
+            form{
+                margin-bottom: 40px;
+                padding: 20px;
+            }
+            form .left,.right{
+                box-sizing: border-box;
+                width:500px;
+                float:left;
+            }
+            form .left{
+                border-right: 1px solid #cccccc;
+                margin-right: 20px; 
+            }
+            form label{
+                float: left;
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                width: 100px;
+            }
+            form input[type=text],select{
+                width: 200px;
+                height: 30px;
+                border-radius: 5px;
+                padding: 5px;
+                border: 1px solid #cccccc;
+                box-sizing: border-box;
+            }
+            form textarea{
+                width: 200px;
+                height: 60px;
+                border-radius: 5px;
+                padding: 5px;
+                border: 1px solid #cccccc;
+                resize: none;
+            }
+            .checkbox_group{
+                width:330px;
+            }
+            
+            .checkbox_group div{
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            form:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="form_box">
+            <form id="my_form">
+                <div class="left">
+                    <label>url：</label><input type="text" data-type="url" data-length="d6-20" placeholder="url" /><br /><br />
+
+                    <label>email：</label><input type="text" data-type="email"  data-require="required" data-error="需要email格式" data-bind="email" placeholder="email" /><br /><br />
+                    
+                    <label>手机号：</label><input type="text" data-bind="email" data-type="phone"  data-require="required" placeholder="phone" /><br /><br />
+                    
+                    <label>数字：</label><input type="text" data-type="number"  data-require="required" placeholder="数字" /><br /><br />
+                    
+                    <label>字符串：</label><input type="text" data-type="string"  data-require="required" placeholder="字符串" /><br /><br />
+                    
+                    <label>自定义规则：</label><input type="text" data-type="test"  data-require="required" placeholder="自定义规则" /><br /><br />
+                    
+                    <label>源字符串：</label><input type="text" data-equal-src="str_src" placeholder="字符串" /><br /><br />
+                    
+                    <label>重复输入：</label><input type="text" data-equal-dest="str_src" placeholder="重复输入" /><br /><br />
+                    
+                    <label>选择：</label>
+                    
+                    <div class="checkbox_group" data-checkbox="cgroup" data-count="2-6">
+                        <div><input type="checkbox" name="">1</div>
+                        <div><input type="checkbox" name="">2</div>
+                        <div><input type="checkbox" name="">3</div>
+                        <div><input type="checkbox" name="">4</div>
+                        <div><input type="checkbox" name="">5</div>
+                        <div><input type="checkbox" name="">6</div>
+                        <div><input type="checkbox" name="">7</div>
+                        <div><input type="checkbox" name="">8</div>
+                        <div><input type="checkbox" name="">9</div>
+                    
+                    </div>
+                    <br /><br />
+                    
+                    <input type="submit" name="" value="提交">
+                </div>
+
+                <div class="right">
+                    
+                    <label>下拉框验证：</label><select data-bind="option" placeholder="绑定" >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select><br /><br />
+                    
+                    <label>输入框：</label><input type="text" data-bind="option" placeholder="双向绑定" /><br />
+                    
+                    <p>选择的值是：{{option}}</p><br />
+                    
+                    <label>文本域：</label><textarea  data-bind="text" placeholder="双向绑定" ></textarea><br />
+                    
+                    <p>输入的是：{{text}}</p><br />
+                    
+                    <label>输入框：</label><input type="text" data-bind="param" placeholder="双向绑定" /><br />
+                    
+                    <p>输入的是：{{param}}</p><br />
+                    
+                    <label>验证框：</label><input type="checkbox" data-bind="ischecked" /><br />
+                    
+                    <p>验证框状态：{{ischecked}}</p><br />
+                </div>
+            </form>
+
+            <button id="check1">验证</button>
+            <button id="check2">验证email</button>
+            <button id="check3">验证cgroup</button>
+            <button id="check4">重置表单</button>
+            <button id="check5">清除提示信息</button>
+            <button id="check6">设置绑定数据</button>
+            <button id="check7">获取绑定数据</button>
+            
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="static/validform.js"></script>
+        <script src="static/main.js"></script>
+    </body>
+
+</html>

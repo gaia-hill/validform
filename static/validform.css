@@ -1,0 +1,19 @@
+
+
+
+
+.validform .tips{
+	// position:absolute;
+	padding-left: 10px;
+	white-space:nowrap;
+}
+.validform .tips-success{
+	font-size: 13px;
+	font-family: "微软雅黑";
+	color:#00ff00;
+}
+.validform .tips-fail{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color:#ff0000;
+}
